@@ -58,5 +58,33 @@ namespace MVCLoginExample.Controllers
         //    }
         //    return View(cal);
         //}
+
+        [HttpPost]
+        public ActionResult Addition(Calculator cal)
+        {
+            cal.Result = cal.Num1 + cal.Num2;
+            return View("Add", cal);
+        }
+
+        [HttpPost]
+        public ActionResult Subtraction(Calculator cal)
+        {
+            cal.Result = cal.Num1 - cal.Num2;
+            return View("Add", cal);
+        }
+        [HttpPost]
+        public ActionResult Multiplication(Calculator cal)
+        {
+            cal.Result = cal.Num1 * cal.Num2;
+            return View("Add", cal);
+        }
+
+        [HttpPost]
+        public ActionResult Division(Calculator cal)
+        {
+            cal.Result = cal.Num1 / cal.Num2;
+            return View("Add", cal);
+        }
+
     }
 }

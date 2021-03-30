@@ -1,15 +1,49 @@
 ﻿@model MVCLoginExample.Models.Calculator
 
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Arthematic Operations";
 }
 
-<h2>Add</h2>
+<h2>Arthematic Operations</h2>
+@*<script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+
+            $("#Add").click(function () {
+                var x = $("#Num1").val();
+                var y = $("#Num2").val();
+                var z = parseInt(x) + parseInt(y);
+                $("#Result").val(z);
+            });
+
+            $("#Sub").click(function () {
+                var x = $("#Num1").val();
+                var y = $("#Num2").val();
+               var z = parseInt(x) - parseInt(y);
+                $("#Result").val(z);
+            });
+
+            $("#Mul").click(function () {
+                var x = $("#Num1").val();
+                var y = $("#Num2").val();
+                var z = parseInt(x) * parseInt(y);
+                $("#Result").val(z);
+            });
+
+            $("#Div").click(function () {
+                var x = $("#Num1").val();
+                var y = $("#Num2").val();
+                var z = parseInt(x) / parseInt(y);
+                $("#Result").val(z);
+            });
+        });
+    </script>*@
+
 
 @using (Html.BeginForm())
 {
 
-    
+
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
@@ -35,6 +69,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Result, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Result, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.DisplayFor(model => model.Result, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Result, "", new { @class = "text-danger" })
             </div>
@@ -58,12 +93,20 @@
                 </div>
             </div>*@
 
+        @*<div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="Add" value="Addition" class="btn btn-default" />
+                <input type="button" id="Sub" value="Subs" class="btn btn-default" />
+                <input type="button" id="Mul" value="Multi" class="btn btn-default" />
+                <input type="button" id="Div" value="Divi" class="btn btn-default" />
+            </div>*@
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" id="Add" value="Add" class="btn btn-default" />
-                <input type="submit" id="Sub" value="Sub" class="btn btn-default" />
-                <input type="submit" id="Mul" value="Mul" class="btn btn-default" />
-                <input type="submit" id="Div" value="Div" class="btn btn-default" />
+                <input type="submit" value="Add" formaction="Addition" formmethod="post" class="btn btn-default" />
+                <input type="submit" value="Sub" formaction="Subtraction" formmethod="post" class="btn btn-default" />
+                <input type="submit" value="Mul" formaction="Multiplication" formmethod="post" class="btn btn-default" />
+                <input type="submit" value="Div" formaction="Division" formmethod="post" class="btn btn-default" />
             </div>
         </div>
     </div>
